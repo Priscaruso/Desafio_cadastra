@@ -8,7 +8,7 @@ def load_data():
     data = get_api_data()
 
     try:
-        for item in data[:10]:
+        for item in data:
             crypto = db.query(Cryptocurrency).filter_by(id=item["id"]).first() # verifica se já existe registro da criptomoeda 
             if not crypto:
                 # cria instância para tabela cryptocurrencies
