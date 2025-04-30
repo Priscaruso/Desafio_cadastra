@@ -5,7 +5,7 @@ O projeto consiste em criar uma aplicação python modularizada que faça o ETL,
 Para o projeto, foi utilizado o banco de dados Postgresql, por ser um banco open source mais robusto. Foram criadas duas tabelas, 
 'cryptocurrencies', que exibe os dados das criptomoedas e 'market_data', que mostra os dados de mercado dessas criptomoedas.
 
-A seguir mostra os campos e colunas dessas tabelas:
+A seguir mostra as colunas e tipo de dados dessas tabelas:
 
 Tabela cryptocurrencies:
 | Campo | Tipo        | Descrição                     |
