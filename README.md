@@ -35,38 +35,23 @@ Tabela market_data:
 Link da documentação da API: https://pro.coincap.io/api-docs
 
 ## Estrutura do projeto
+<pre><code>
 Desafio_cadastra/
-
 │
-
 ├── app/
-
 │   ├── __init__.py
-
 │   ├── config.py         # Configurações (variáveis de ambiente, parâmetros)
-
 │   ├── database.py       # Conexão e funções do banco de dados
-
 │   ├── api_client.py     # Conexão e requisições à API
-
 │   ├── models.py         # Modelagem das tabelas
-
 │   ├── ingestion.py      # Lógica de coleta e gravação dos dados
-
-
 ├── requirements.txt      # Bibliotecas utilizadas no projeto
-
 ├── README.md             # Instruções do projeto
-
 ├── .env                  # Variáveis de ambiente (não enviado ao GitHub)
-
 ├── docker-compose.yml    # Arquivo docker compose com serviço Postgresql
-
 ├── .gitignore            # Arquivos para o git ignorar
-
 ├── create_tables.py      # Script que cria as tabelas no banco
-
-└── main.py               # Script principal
+└── main.py               # Script principal </code></pre>
 
 
 ## Pré-requisitos
