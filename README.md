@@ -101,16 +101,19 @@ Obs: todos os comandos listados a seguir foram executados em um terminal do sist
 - criar o arquivo .env no diretório do projeto
 
     `touch .env`
-- configurar as credenciais de acesso dentro do arquivo .env, substituindo <your_password>, <your_db>, <your_user> e yourapikey pelos seus dados 
+- configurar as credenciais de acesso dentro do arquivo .env usando seu editor preferido, substituindo <your_password>, <your_db>, <your_user> e yourapikey pelos seus dados 
 
     ```
+    # API da Coincap
     API_URL = https://rest.coincap.io/v3/assets?apiKey=yourapikey
 
+    # Credenciais do banco Postgres
     POSTGRES_DB = <your_db>
     POSTGRES_USER = <your_user>
     POSTGRES_PASSWORD = <your_password>
     PORTS=5432
 
+    # URL de conexão com o banco Postgres
     DATABASE_URL = postgresql://<your_user>:<your_password>@<localhost:5432/<your_db>
     ```
 
