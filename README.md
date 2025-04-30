@@ -3,10 +3,11 @@
 ## Objetivo
 O projeto consiste em criar uma aplicação python modularizada que faça o ETL, extraindo os dados da API de criptomoedas CoinCap e armazenando esses dados em um banco de dados relacional. A partir dos dados armazenados no banco, criar um Dashboard em Power BI.
 Para o projeto, foi utilizado o banco de dados Postgresql, por ser um banco open source mais robusto. Foram criadas duas tabelas, 
-'criptocurrencies', que exibe os dados das criptomoedas e 'market_data', que mostra os dados de mercado dessas moedas.
+'cryptocurrencies', que exibe os dados das criptomoedas e 'market_data', que mostra os dados de mercado dessas criptomoedas.
 
 A seguir mostra os campos e colunas dessas tabelas:
 
+Tabela cryptocurrencies:
 | Campo | Tipo        | Descrição                     |
 |-------|-------------|-------------------------------|
 | `id`  | `string`    | ID da criptomoeda             |
@@ -14,6 +15,7 @@ A seguir mostra os campos e colunas dessas tabelas:
 | `symbol` | `string` | Símbolo da criptomoeda        |
 | `rank` | `integer`  | Posição (ranking) da criptomoeda |
 
+Tabela market_data:
 | Campo                 | Tipo      | Descrição                                                   |
 |-----------------------|-----------|-------------------------------------------------------------|
 | `id`                  | `integer` | Identificação única do registro na tabela (chave primária) |
