@@ -145,3 +145,6 @@ As 10 criptomoedas com maior capitalização de mercado às 17h51 do dia 30/04
 
 ![alt text](image.png)
 
+As 10 criptomoedas mais bem posicionadas no ranking
+
+![alt text](image-1.png)
