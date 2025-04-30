@@ -80,9 +80,9 @@ https://www.microsoft.com/pt-br/power-platform/products/power-bi
 ## Execução
 Obs: todos os comandos listados a seguir foram executados em um terminal do sistema Linux Ubuntu. Caso seu sistema seja diferente, verificar os comandos correspondentes no mesmo.
 
-- baixar ou clonar o repositório do projeto:
+- baixar ou clonar o repositório do projeto usando o link https ou ssh:
 
-    `git clone git@github.com:Priscaruso/Desafio_cadastra.git`
+    `git clone https://github.com/Priscaruso/Desafio_cadastra.git`
 - criar um ambiente virtual para instalação dos pacotes necessários
 
     `python3.10 -m venv venv`
