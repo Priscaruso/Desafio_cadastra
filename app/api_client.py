@@ -12,4 +12,4 @@ def get_api_data():
         
     except requests.RequestException as e:
         print(f"Erro ao requisitar os dados da API: {e}")
-        return []
+        return None
