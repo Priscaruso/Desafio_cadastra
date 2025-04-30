@@ -7,30 +7,23 @@ Para o projeto, foi utilizado o banco de dados Postgresql, por ser um banco open
 
 A seguir mostra os campos e colunas dessas tabelas:
 
-Tabela cryptocurrencies:
+| Campo | Tipo        | Descrição                     |
+|-------|-------------|-------------------------------|
+| `id`  | `string`    | ID da criptomoeda             |
+| `name` | `string`   | Nome da criptomoeda           |
+| `symbol` | `string` | Símbolo da criptomoeda        |
+| `rank` | `integer`  | Posição (ranking) da criptomoeda |
 
--id: id da criptomoeda
+| Campo                 | Tipo      | Descrição                                                   |
+|-----------------------|-----------|-------------------------------------------------------------|
+| `id`                  | `integer` | Identificação única do registro na tabela (chave primária) |
+| `cryptocurrency_id`   | `string`  | ID da criptomoeda (chave estrangeira de `cryptocurrencies`) |
+| `price_usd`           | `float`   | Preço da criptomoeda em dólar                              |
+| `market_cap_usd`      | `float`   | Capitalização de mercado em dólar                          |
+| `volume_usd_24hr`     | `float`   | Volume de negociação em dólar nas últimas 24 horas         |
+| `change_percent_24hr` | `float`   | Variação percentual do preço nas últimas 24 horas          |
+| `timestamp`           | `datetime`| Data e hora em que os dados foram inseridos no banco       |
 
--name: nome da criptomoeda
-
--symbol: símbolo da criptomoeda
-
--rank: posição da criptomoeda
-
-Tabela market_data:
--cryptocurrencies_id: id referente a tabela cryptocurrencies
-
--id: identificação do registro na tabela
-
--price_usd: preço em dolár da criptomoeda
-
--market_cap_usd: capital de mercado em dólar
-
--volume_usd_24h: volume em dolár em 24 horas
-
--change_percent_24h: variação percentual em 24 horas
-
--timestamp: data e hora que os dados foram inseridos no banco
 
 Link da documentação da API: https://pro.coincap.io/api-docs
 
@@ -76,7 +69,11 @@ https://docs.docker.com/desktop/setup/install/windows-install/
 
 https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository (usando o repositório apt no Ubuntu)
 
+- Ter o Power BI desktop instalado
 
+https://www.microsoft.com/pt-br/power-platform/products/power-bi
+
+- Criar conta no Coincap para obter chave API
 
 ## Execução
 Obs: todos os comandos listados a seguir foram executados em um terminal do sistema Linux Ubuntu. Caso seu sistema seja diferente, verificar os comandos correspondentes no mesmo.
@@ -104,14 +101,16 @@ Obs: todos os comandos listados a seguir foram executados em um terminal do sist
     `touch .env`
 - configurar as credenciais de acesso dentro do arquivo .env, substituindo <your_password>, <your_db>, <your_user> e yourapikey pelos seus dados 
 
-API_URL = https://rest.coincap.io/v3/assets?apiKey=yourapikey
+    ```
+    API_URL = https://rest.coincap.io/v3/assets?apiKey=yourapikey
 
-POSTGRES_DB = <your_db>
-POSTGRES_USER = <your_user>
-POSTGRES_PASSWORD = <your_password>
-PORTS=5432
+    POSTGRES_DB = <your_db>
+    POSTGRES_USER = <your_user>
+    POSTGRES_PASSWORD = <your_password>
+    PORTS=5432
 
-DATABASE_URL = postgresql://<your_user>:<your_password>@<localhost:5432/<your_db>
+    DATABASE_URL = postgresql://<your_user>:<your_password>@<localhost:5432/<your_db>
+    ```
 
 - construir o container com o Postgres usando o Docker compose file
 
@@ -122,13 +121,12 @@ DATABASE_URL = postgresql://<your_user>:<your_password>@<localhost:5432/<your_db
 - rodar o script python que cria as tabelas no banco
 
     `python3.10 create_tables.py`
-- acessar o banco pelo contain
 - rodar o script python que executa o ETL
 
     `python3.10 main.py`
-- acessar o banco pelo container docker para verificar as tabelas 'cryptocurrencies' e 'market_data' criadas
+- acessar o banco pelo container docker para verificar as tabelas 'cryptocurrencies' e 'market_data' criadas, substituindo <your_user> e <your_db> com as credenciais criadas
     ```
-    docker exec -it crypto_db psql -U docker -d crypto_data
+    docker exec -it crypto_db psql -U <your_user> -d <your_db>
     \dt  # lista as tabelas do banco
     select * from cryptocurrencies;
     q    # para sair da exibição dos dados
@@ -141,6 +139,7 @@ DATABASE_URL = postgresql://<your_user>:<your_password>@<localhost:5432/<your_db
 
 - criar dashboard desejado a partir dos dados
 
-As 10 criptomoedas com maior capital de mercado às 17h51 do dia 30/04
+As 10 criptomoedas com maior capitalização de mercado às 17h51 do dia 30/04
+
 ![alt text](image.png)
 
