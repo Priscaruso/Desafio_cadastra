@@ -82,7 +82,7 @@ Obs: todos os comandos listados a seguir foram executados em um terminal do sist
 
 - clonar o repositório do projeto:
 
-    `git clone git@github.com:Desafio_cadastra`
+    `git clone git@github.com:Priscaruso/Desafio_cadastra.git`
 - criar um ambiente virtual para instalação dos pacotes necessários
 
     `python3.10 -m venv venv`
