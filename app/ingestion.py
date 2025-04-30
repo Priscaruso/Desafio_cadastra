@@ -22,10 +22,10 @@ def load_data():
             # cria instância para a tabela market_data
             market_data = MarketData(
                 cryptocurrency_id=item["id"],
-                price_usd=float(item["priceUsd"]),
-                market_cap_usd=float(item["marketCapUsd"]),
-                volume_usd_24h=float(item["volumeUsd24Hr"]),
-                change_percent_24h=float(item["changePercent24Hr"])
+                price_usd=round(float(item["priceUsd"]),2),
+                market_cap_usd=round(float(item["marketCapUsd"]),2),
+                volume_usd_24h=round(float(item["volumeUsd24Hr"]),2),
+                change_percent_24h=round(float(item["changePercent24Hr"]),2)
             )
             db.add(market_data)
         db.commit()
