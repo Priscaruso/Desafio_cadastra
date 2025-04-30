@@ -80,7 +80,7 @@ https://www.microsoft.com/pt-br/power-platform/products/power-bi
 ## Execução
 Obs: todos os comandos listados a seguir foram executados em um terminal do sistema Linux Ubuntu. Caso seu sistema seja diferente, verificar os comandos correspondentes no mesmo.
 
-- clonar o repositório do projeto:
+- baixar ou clonar o repositório do projeto:
 
     `git clone git@github.com:Priscaruso/Desafio_cadastra.git`
 - criar um ambiente virtual para instalação dos pacotes necessários
